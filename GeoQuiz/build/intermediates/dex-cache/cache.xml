@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="/home/mirland/AndroidstudioProjects/GeoQuiz/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.1-4be23d94a685e18b84835e7915672eae67761ebc.jar"
+        jar="/home/mirland/AndroidstudioProjects/GeoQuiz/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/libs/internal_impl-22.2.1.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb"/>
+    <item
+        dex="/home/mirland/AndroidstudioProjects/GeoQuiz/app/build/intermediates/pre-dexed/debug/classes-d72495c4cbed9efb7e20b2dccd608346fdeb1589.jar"
+        jar="/home/mirland/AndroidstudioProjects/GeoQuiz/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503"/>
+    <item
+        dex="/home/mirland/AndroidstudioProjects/GeoQuiz/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.1-f64db73e0f4dab62889ec4b18071bf5dbba1d994.jar"
+        jar="/opt/android-studio/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.1/support-annotations-22.2.1.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b"/>
+    <item
+        dex="/home/mirland/AndroidstudioProjects/GeoQuiz/app/build/intermediates/pre-dexed/debug/classes-eb9a2841af1ed848e6eaa9393b113fe65aace090.jar"
+        jar="/home/mirland/AndroidstudioProjects/GeoQuiz/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731"/>
+
+</pre-dex-items>
