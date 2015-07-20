@@ -205,6 +205,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="incorrect_toast">Incorrect!</string>
     <string name="next_button">Next</string>
+    <string name="prev_button">Prev</string>
     <string name="question_africa">The source of the Nile River is in Egypt.</string>
     <string name="question_americas">The Amazon River is the longest river
     in the Americas.</string>

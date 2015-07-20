@@ -1,20 +1,18 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:gravity="center"
-              android:orientation="vertical" >
-
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent" >
   <TextView
     android:id="@+id/question_text_view"
     android:layout_width="wrap_content"
+    android:layout_gravity="center_horizontal"
     android:layout_height="wrap_content"
     android:padding="24dp" />
-  <!--android:text="@string/question_text" -->
 
   <LinearLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="horizontal" >
+    android:orientation="horizontal"
+    android:layout_gravity="center_vertical|center_horizontal" >
 
     <Button
       android:id="@+id/true_button"
@@ -31,23 +29,26 @@
   </LinearLayout>
 
   <LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal" >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal" >
+
     <ImageButton
       android:id="@+id/prev_button"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_gravity="bottom|right"
       android:src="@drawable/arrow_left" />
 
     <ImageButton
       android:id="@+id/next_button"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_gravity="bottom|right"
       android:src="@drawable/arrow_right" />
 
   </LinearLayout>
 
 
-</LinearLayout>
-<!-- From: file:/home/mirland/AndroidstudioProjects/GeoQuiz/app/src/main/res/layout/activity_quiz.xml -->
+</FrameLayout>
+<!-- From: file:/home/mirland/AndroidstudioProjects/GeoQuiz/app/src/main/res/layout-land/activity_quiz.xml -->
