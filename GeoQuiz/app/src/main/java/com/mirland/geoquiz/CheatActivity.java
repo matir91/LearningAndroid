@@ -34,8 +34,6 @@ public class CheatActivity  extends Activity {
         mCheatLinearLayout = (LinearLayout)findViewById(R.id.cheatLinearLayout);
         mCheatLinearLayout.addView(version);
         version.setGravity(Gravity.CENTER);
-
-
     }
 
     private void setAnswerShownResult(boolean isAnswerShown) {
