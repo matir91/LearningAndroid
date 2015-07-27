@@ -14,6 +14,7 @@ public class Crime {
     private static final String JSON_TITLE = "title";
     private static final String JSON_SOLVED = "solved";
     private static final String JSON_DATE = "date";
+    private static final String JSON_PHOTO = "photo";
 
     private UUID mId;
     private String mTitle;
@@ -22,6 +23,7 @@ public class Crime {
     /*Date to the crime ocurred*/
     private Date mDate;
     private boolean mSolved;
+    private Photo mPhoto;
 
 
     public Crime() {
@@ -64,6 +66,13 @@ public class Crime {
 
     public void setDate(Date date) {
         mDate = date;
+    }
+    public Photo getPhoto() {
+        return mPhoto;
+    }
+
+    public void setPhoto(Photo p) {
+        mPhoto = p;
     }
 
     public boolean isSolved() {
