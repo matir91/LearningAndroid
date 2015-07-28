@@ -1,13 +1,11 @@
 package criminalintent.mirland.xmartlabs.com.criminalintent;
 
-import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.ActionMode;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -17,7 +15,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
-import android.widget.AdapterView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
@@ -34,6 +31,7 @@ public class CrimeListFragment extends ListFragment {
     private static final String TAG = "CrimeListFragment";
 
     private ArrayList<Crime> mCrimes;
+    private Callbacks mCallbacks;
 
 
     @Override
@@ -50,15 +48,18 @@ public class CrimeListFragment extends ListFragment {
         ((AppCompatActivity)getActivity()).getSupportActionBar().show();
     }
 
+    public void updateUI() {
+        ((CrimeAdapter)getListAdapter()).notifyDataSetChanged();
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_item_new_crime:
                 Crime crime = new Crime();
                 CrimeLab.get(getActivity()).addCrime(crime);
-                Intent i = new Intent(getActivity(), CrimePagerActivity.class);
-                i.putExtra(CrimeFragment.EXTRA_CRIME_ID, crime.getId());
-                startActivityForResult(i, 0);
+                ((CrimeAdapter)getListAdapter()).notifyDataSetChanged();
+                mCallbacks.onCrimeSelected(crime);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -72,10 +73,7 @@ public class CrimeListFragment extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id) {
         Crime c = ((CrimeAdapter)getListAdapter()).getItem(position);
 
-        // Start CrimeActivity
-        Intent i = new Intent(getActivity(), CrimePagerActivity.class);
-        i.putExtra(CrimeFragment.EXTRA_CRIME_ID, c.getId());
-        startActivityForResult(i, 0);
+        mCallbacks.onCrimeSelected(c);
     }
 
     @Override
@@ -197,4 +195,25 @@ public class CrimeListFragment extends ListFragment {
         }
         return super.onContextItemSelected(item);
     }
+
+    /**
+     * Required interface for hosting activities.
+     */
+    public interface Callbacks {
+
+        void onCrimeSelected(Crime crime);
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        mCallbacks = (Callbacks)activity;
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mCallbacks = null;
+    }
+
 }

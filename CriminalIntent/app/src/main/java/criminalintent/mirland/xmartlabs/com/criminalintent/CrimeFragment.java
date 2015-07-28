@@ -58,7 +58,7 @@ public class CrimeFragment extends Fragment {
     private ImageButton mPhotoButton;
     private ImageView mPhotoView;
     private CheckBox mSolvedCheckBox;
-
+    private Callbacks mCallbacks;
 
     public CrimeFragment() {
 
@@ -111,6 +111,8 @@ public class CrimeFragment extends Fragment {
             public void onTextChanged(
                     CharSequence c, int start, int before, int count) {
                 mCrime.setTitle(c.toString());
+                mCallbacks.onCrimeUpdated(mCrime);
+
             }
 
             public void beforeTextChanged(
@@ -157,6 +159,8 @@ public class CrimeFragment extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 // Set the crime's solved property
                 mCrime.setSolved(isChecked);
+                mCallbacks.onCrimeUpdated(mCrime);
+                mCallbacks.onCrimeUpdated(mCrime);
             }
         });
 
@@ -279,6 +283,8 @@ public class CrimeFragment extends Fragment {
             mCrime.setSuspect(suspect);
             mSuspectButton.setText(suspect);
             c.close();
+            mCallbacks.onCrimeUpdated(mCrime);
+
         }
     }
 
@@ -338,6 +344,24 @@ public class CrimeFragment extends Fragment {
                 mCrime.getTitle(), dateString, solvedString, suspect);
 
         return report;
+    }
+    /**
+     * Required interface for hosting activities.
+     */
+    public interface Callbacks {
+        void onCrimeUpdated(Crime crime);
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        mCallbacks = (Callbacks)activity;
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mCallbacks = null;
     }
 
 }
